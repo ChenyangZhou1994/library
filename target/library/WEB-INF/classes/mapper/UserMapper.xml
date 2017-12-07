@@ -6,9 +6,10 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="userpassword" jdbcType="VARCHAR" property="userpassword" />
     <result column="useridnumber" jdbcType="VARCHAR" property="useridnumber" />
-    <result column="userjobnumber" jdbcType="INTEGER" property="userjobnumber" />
+    <result column="userjobnumber" jdbcType="VARCHAR" property="userjobnumber" />
     <result column="userlendinglevels" jdbcType="INTEGER" property="userlendinglevels" />
     <result column="usercollegenumber" jdbcType="INTEGER" property="usercollegenumber" />
+    <result column="usertelephone" jdbcType="VARCHAR" property="usertelephone" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    userid, username, userpassword, useridnumber, userjobnumber, userlendinglevels, usercollegenumber
+    userid, username, userpassword, useridnumber, userjobnumber, userlendinglevels, usercollegenumber, 
+    usertelephone
   </sql>
   <select id="selectByExample" parameterType="com.imu.library.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -104,10 +106,10 @@
   <insert id="insert" parameterType="com.imu.library.pojo.User">
     insert into user (userid, username, userpassword, 
       useridnumber, userjobnumber, userlendinglevels, 
-      usercollegenumber)
+      usercollegenumber, usertelephone)
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
-      #{useridnumber,jdbcType=VARCHAR}, #{userjobnumber,jdbcType=INTEGER}, #{userlendinglevels,jdbcType=INTEGER}, 
-      #{usercollegenumber,jdbcType=INTEGER})
+      #{useridnumber,jdbcType=VARCHAR}, #{userjobnumber,jdbcType=VARCHAR}, #{userlendinglevels,jdbcType=INTEGER}, 
+      #{usercollegenumber,jdbcType=INTEGER}, #{usertelephone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.imu.library.pojo.User">
     insert into user
@@ -133,6 +135,9 @@
       <if test="usercollegenumber != null">
         usercollegenumber,
       </if>
+      <if test="usertelephone != null">
+        usertelephone,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userid != null">
@@ -148,13 +153,16 @@
         #{useridnumber,jdbcType=VARCHAR},
       </if>
       <if test="userjobnumber != null">
-        #{userjobnumber,jdbcType=INTEGER},
+        #{userjobnumber,jdbcType=VARCHAR},
       </if>
       <if test="userlendinglevels != null">
         #{userlendinglevels,jdbcType=INTEGER},
       </if>
       <if test="usercollegenumber != null">
         #{usercollegenumber,jdbcType=INTEGER},
+      </if>
+      <if test="usertelephone != null">
+        #{usertelephone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -180,13 +188,16 @@
         useridnumber = #{record.useridnumber,jdbcType=VARCHAR},
       </if>
       <if test="record.userjobnumber != null">
-        userjobnumber = #{record.userjobnumber,jdbcType=INTEGER},
+        userjobnumber = #{record.userjobnumber,jdbcType=VARCHAR},
       </if>
       <if test="record.userlendinglevels != null">
         userlendinglevels = #{record.userlendinglevels,jdbcType=INTEGER},
       </if>
       <if test="record.usercollegenumber != null">
         usercollegenumber = #{record.usercollegenumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.usertelephone != null">
+        usertelephone = #{record.usertelephone,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -199,9 +210,10 @@
       username = #{record.username,jdbcType=VARCHAR},
       userpassword = #{record.userpassword,jdbcType=VARCHAR},
       useridnumber = #{record.useridnumber,jdbcType=VARCHAR},
-      userjobnumber = #{record.userjobnumber,jdbcType=INTEGER},
+      userjobnumber = #{record.userjobnumber,jdbcType=VARCHAR},
       userlendinglevels = #{record.userlendinglevels,jdbcType=INTEGER},
-      usercollegenumber = #{record.usercollegenumber,jdbcType=INTEGER}
+      usercollegenumber = #{record.usercollegenumber,jdbcType=INTEGER},
+      usertelephone = #{record.usertelephone,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -219,7 +231,7 @@
         useridnumber = #{useridnumber,jdbcType=VARCHAR},
       </if>
       <if test="userjobnumber != null">
-        userjobnumber = #{userjobnumber,jdbcType=INTEGER},
+        userjobnumber = #{userjobnumber,jdbcType=VARCHAR},
       </if>
       <if test="userlendinglevels != null">
         userlendinglevels = #{userlendinglevels,jdbcType=INTEGER},
@@ -227,17 +239,10 @@
       <if test="usercollegenumber != null">
         usercollegenumber = #{usercollegenumber,jdbcType=INTEGER},
       </if>
+      <if test="usertelephone != null">
+        usertelephone = #{usertelephone,jdbcType=VARCHAR},
+      </if>
     </set>
-    where userid = #{userid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.imu.library.pojo.User">
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      userpassword = #{userpassword,jdbcType=VARCHAR},
-      useridnumber = #{useridnumber,jdbcType=VARCHAR},
-      userjobnumber = #{userjobnumber,jdbcType=INTEGER},
-      userlendinglevels = #{userlendinglevels,jdbcType=INTEGER},
-      usercollegenumber = #{usercollegenumber,jdbcType=INTEGER}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
 </mapper>

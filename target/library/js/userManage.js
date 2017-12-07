@@ -1,6 +1,3 @@
-/**
- * Created by 文辉 on 2017/7/23.
- */
 $(document).ready(function () {
 
     var path = $("#path").text();
@@ -66,19 +63,22 @@ function build_user_table(path,result) {
     var goods = result.info.pageInfo.list;
     $.each(goods, function (index,item) {
         var userid = $("<td></td>").append(item.userid);
+        var userjobnumber = $("<td></td>").append(item.userjobnumber);
         var username = $("<td></td>").append(item.username);
-        var email = $("<td></td>").append(item.email);
-        var telephone = $("<td></td>").append(item.telephone);
-
+        var useridnumber = $("<td></td>").append(item.useridnumber);
+        var useremail = $("<td></td>").append(item.useremail);
+        var usertelephone = $("<td></td>").append(item.usertelephone);
         var deleteBtn = $("<button></button>").addClass("templatemo-delete-btn").append("删除");
 
         var deleteTd = $("<td></td>").append(deleteBtn);
 
 
         $("<tr></tr>").append(userid)
+            .append(userjobnumber)
             .append(username)
-            .append(email)
-            .append(telephone)
+            .append(useridnumber)
+            .append(useremail)
+            .append(usertelephone)
             .append(deleteTd).appendTo("#goodsinfo tbody");
     })
 }

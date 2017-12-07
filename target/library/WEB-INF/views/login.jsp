@@ -65,7 +65,7 @@
 							<div class="form-group">
 								<label for="userjobnumber" class="col-sm-2 control-label">学/工号</label>
 								<div class="col-sm-10">
-									<input type="number" class="form-control" id="userjobnumber"
+									<input type="text" class="form-control" id="userjobnumber"
 										name="userjobnumber" placeholder="学号/工号">
 								</div>
 							</div>

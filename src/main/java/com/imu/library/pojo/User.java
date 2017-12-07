@@ -9,11 +9,13 @@ public class User {
 
     private String useridnumber;
 
-    private Integer userjobnumber;
+    private String userjobnumber;
 
     private Integer userlendinglevels;
 
     private Integer usercollegenumber;
+
+    private String usertelephone;
 
     public Integer getUserid() {
         return userid;
@@ -47,12 +49,12 @@ public class User {
         this.useridnumber = useridnumber == null ? null : useridnumber.trim();
     }
 
-    public Integer getUserjobnumber() {
+    public String getUserjobnumber() {
         return userjobnumber;
     }
 
-    public void setUserjobnumber(Integer userjobnumber) {
-        this.userjobnumber = userjobnumber;
+    public void setUserjobnumber(String userjobnumber) {
+        this.userjobnumber = userjobnumber == null ? null : userjobnumber.trim();
     }
 
     public Integer getUserlendinglevels() {
@@ -69,5 +71,13 @@ public class User {
 
     public void setUsercollegenumber(Integer usercollegenumber) {
         this.usercollegenumber = usercollegenumber;
+    }
+
+    public String getUsertelephone() {
+        return usertelephone;
+    }
+
+    public void setUsertelephone(String usertelephone) {
+        this.usertelephone = usertelephone == null ? null : usertelephone.trim();
     }
 }

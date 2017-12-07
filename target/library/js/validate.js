@@ -8,14 +8,14 @@ $(document).ready(function() {
 	$('#form').validate({
 		rules: {
 			username: "required",
-            telephone: {
+            usertelephone: {
 				required: true,
 			},
-            email: {
+            useremail: {
 				required: true,
 				email: true,
 			},
-            password: {
+            userpassword: {
 				required: true,
 				minlength: 8,
 			},
@@ -27,12 +27,12 @@ $(document).ready(function() {
 		},
 		messages: {
             username: "用户名不能为空",
-            telephone: "联系电话不能为空",
-            email: {
+            usertelephone: "联系电话不能为空",
+            useremail: {
 				required: "邮箱输入不能为空",
 				email: "请输入一个正确的邮箱",
 			},
-            password: {
+            userpassword: {
 				required: "密码输入不能为空",
 				minlength: "密码长度不能小于8位",
 			},

@@ -384,52 +384,62 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberEqualTo(Integer value) {
+        public Criteria andUserjobnumberEqualTo(String value) {
             addCriterion("userjobnumber =", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberNotEqualTo(Integer value) {
+        public Criteria andUserjobnumberNotEqualTo(String value) {
             addCriterion("userjobnumber <>", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberGreaterThan(Integer value) {
+        public Criteria andUserjobnumberGreaterThan(String value) {
             addCriterion("userjobnumber >", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserjobnumberGreaterThanOrEqualTo(String value) {
             addCriterion("userjobnumber >=", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberLessThan(Integer value) {
+        public Criteria andUserjobnumberLessThan(String value) {
             addCriterion("userjobnumber <", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberLessThanOrEqualTo(Integer value) {
+        public Criteria andUserjobnumberLessThanOrEqualTo(String value) {
             addCriterion("userjobnumber <=", value, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberIn(List<Integer> values) {
+        public Criteria andUserjobnumberLike(String value) {
+            addCriterion("userjobnumber like", value, "userjobnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserjobnumberNotLike(String value) {
+            addCriterion("userjobnumber not like", value, "userjobnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserjobnumberIn(List<String> values) {
             addCriterion("userjobnumber in", values, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberNotIn(List<Integer> values) {
+        public Criteria andUserjobnumberNotIn(List<String> values) {
             addCriterion("userjobnumber not in", values, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberBetween(Integer value1, Integer value2) {
+        public Criteria andUserjobnumberBetween(String value1, String value2) {
             addCriterion("userjobnumber between", value1, value2, "userjobnumber");
             return (Criteria) this;
         }
 
-        public Criteria andUserjobnumberNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserjobnumberNotBetween(String value1, String value2) {
             addCriterion("userjobnumber not between", value1, value2, "userjobnumber");
             return (Criteria) this;
         }
@@ -551,6 +561,76 @@ public class UserExample {
 
         public Criteria andUsercollegenumberNotBetween(Integer value1, Integer value2) {
             addCriterion("usercollegenumber not between", value1, value2, "usercollegenumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneIsNull() {
+            addCriterion("usertelephone is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneIsNotNull() {
+            addCriterion("usertelephone is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneEqualTo(String value) {
+            addCriterion("usertelephone =", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneNotEqualTo(String value) {
+            addCriterion("usertelephone <>", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneGreaterThan(String value) {
+            addCriterion("usertelephone >", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneGreaterThanOrEqualTo(String value) {
+            addCriterion("usertelephone >=", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneLessThan(String value) {
+            addCriterion("usertelephone <", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneLessThanOrEqualTo(String value) {
+            addCriterion("usertelephone <=", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneLike(String value) {
+            addCriterion("usertelephone like", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneNotLike(String value) {
+            addCriterion("usertelephone not like", value, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneIn(List<String> values) {
+            addCriterion("usertelephone in", values, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneNotIn(List<String> values) {
+            addCriterion("usertelephone not in", values, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneBetween(String value1, String value2) {
+            addCriterion("usertelephone between", value1, value2, "usertelephone");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsertelephoneNotBetween(String value1, String value2) {
+            addCriterion("usertelephone not between", value1, value2, "usertelephone");
             return (Criteria) this;
         }
     }

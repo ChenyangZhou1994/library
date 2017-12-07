@@ -81,6 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByName" parameterType="com.imu.library.pojo.Admin" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from admin
+    where adminName = #{adminname}
+    <if test="adminpassword != null">
+      and adminpassword = #{adminpassword}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

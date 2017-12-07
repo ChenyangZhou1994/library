@@ -2,11 +2,11 @@ package com.imu.library.controlller.front;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 import com.imu.library.pojo.User;
 import com.imu.library.pojo.UserExample;
 import com.imu.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +28,9 @@ public class CustomerController {
         return "login";
     }
 
+    @Autowired
+    private UserService userService;
 
-    //@Autowired
-   // private UserService userService;
-/*
     @RequestMapping("/register")
     public String register(){
         return "register";
@@ -41,22 +40,20 @@ public class CustomerController {
     public String registerResult(User user, Model registerResult){
         List<User> userList=new ArrayList<>();
         UserExample userExample=new UserExample();
-        userExample.or().andUsernameLike(user.getUsername());
+        userExample.or().andUserjobnumberLike(user.getUserjobnumber());
         userList=userService.selectByExample(userExample);
         if (!userList.isEmpty())
         {
-            registerResult.addAttribute("errorMsg","用户名被占用");
+            registerResult.addAttribute("errorMsg","学/工号被占用");
             return "register";
         }
         else {
-            Date RegTime=new Date();
-            user.setRegtime(RegTime);
             userService.insertSelective(user);
-            return  "redirect:/login";
+            return  "login";
         }
     }
-*/
-/*
+
+
     @RequestMapping("/loginconfirm")
     public String loginConfirm(User user,Model loginResult,HttpServletRequest request,@RequestParam("confirmlogo") String confirmlogo){
         HttpSession session=request.getSession();
@@ -69,7 +66,7 @@ public class CustomerController {
         }
         List<User> userList=new ArrayList<User>();
         UserExample userExample=new UserExample();
-        userExample.or().andUsernameEqualTo(user.getUsername()).andUserpasswordEqualTo(user.getUserpassword());
+        userExample.or().andUserjobnumberLike(user.getUserjobnumber()).andUserpasswordEqualTo(user.getUserpassword());
         userList=userService.selectByExample(userExample);
         if (!userList.isEmpty())
         {
@@ -77,12 +74,11 @@ public class CustomerController {
             return "redirect:/main";
         }
         else {
-            loginResult.addAttribute("errorMsg","用户名与密码不匹配");
+            loginResult.addAttribute("errorMsg","学/工号与密码不匹配");
             return "login";
         }
     }
-*/
-    /*
+
     @RequestMapping("/information")
     public String information(Model userModel,HttpServletRequest request){
         HttpSession session=request.getSession();
@@ -98,7 +94,7 @@ public class CustomerController {
         userModel.addAttribute("user",user);
         return "information";
     }
-
+/*
     @RequestMapping("/saveInfo")
     @ResponseBody
     public Msg saveInfo(String name, String email, String telephone,HttpServletRequest request){
@@ -291,9 +287,8 @@ public class CustomerController {
 
         return "list";
     }*/
-
-
     /*
+
     @RequestMapping("/deleteList")
     @ResponseBody
     public Msg deleteList(Order order){
@@ -370,13 +365,13 @@ public class CustomerController {
         orderService.updateOrderByKey(order);
         return Msg.success("完成订单成功");
     }
-
+*/
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request){
         HttpSession session=request.getSession();
         session.removeAttribute("user");
-        return "redirect:/shop/login";
+        return "main";
     }
-    */
+
 
 }
